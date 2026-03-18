@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+    --color-primary: #02B290;
+    --color-secondary: #353535;
+}
+
+::-webkit-scrollbar{width: 8px !important; height: 8px !important;}
+::-webkit-scrollbar-thumb{background: #02B290;}
+::-webkit-scrollbar-track{background: #fff;}
+
+body{background: #f1f1f1;}
+
+.container{width: 96%; margin: auto;}
+
+.ReactCollapse--collapse {
+    transition: height 300ms;
+}
+
+.btn-border-g{border: 1px solid #02B290 !important; font-weight: 600 !important; color: #02B290 !important;}
+.btn-border-g:hover{background: #02B290 !important; color: #fff !important;}
+
+.btn-g{border: 1px solid #02B290 !important; font-weight: 600 !important; color: #fff !important; background: #02B290 !important; padding: 8px 15px !important;}
+.btn-border-g:hover{ color: #353535 !important;}
+
+.MuiTableHead-root th{background: #f1f1f1 !important; font-weight: 600 !important; padding: 10px 16px !important;}
+.MuiTableHead-root th{@apply text-gray-700 !important}
+
+.MuiTableHead-root{padding: 10px 16px !important;}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.MuiCircularProgress-root{width: 30px !important; height: 30px !important;}
+.MuiCircularProgress-root svg{color: #fff !important;}
+
+.uploadBox .MuiCircularProgress-root svg{color: #02B290 !important;}

@@ -1,0 +1,63 @@
+
+> grocery@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env
+
+ ✓ Starting...
+ ✓ Ready in 1497ms
+ ○ Compiling / ...
+ ✓ Compiled / in 5.2s (2716 modules)
+ GET / 200 in 6102ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1616ms (2733 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 2116ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 1363ms (1813 modules)
+ GET /favicon.ico 200 in 1433ms
+ ○ Compiling /admin/login ...
+ ✓ Compiled /admin/login in 53.8s (2875 modules)
+ GET /admin/login 200 in 55653ms
+ GET / 200 in 42406ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 68ms
+ GET /favicon.ico 200 in 33ms
+ GET / 200 in 25ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 42ms
+ GET /favicon.ico 200 in 18ms
+ GET / 200 in 22ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 19ms
+ GET /favicon.ico 200 in 29ms
+ GET / 200 in 19ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 40ms
+ GET /favicon.ico 200 in 17ms
+ GET / 200 in 19ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 15ms
+ GET /favicon.ico 200 in 19ms
+ GET / 200 in 18ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 22ms
+ GET /favicon.ico 200 in 12ms
+ GET / 200 in 16ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 23ms
+ GET /favicon.ico 200 in 18ms
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 2.6s (3030 modules)
+ GET / 404 in 2698ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /_next/static/webpack/3e9cb77abbaa047c.webpack.hot-update.json 404 in 1330ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 38ms
+ GET /favicon.ico 404 in 9ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat '/home/tejas/Sites/DSS-React/grocery/grocery/.next/server/app/admin/login/page.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/admin/login/page' in /home/tejas/Sites/DSS-React/grocery/grocery/node_modules/next/dist/server for build dependencies doesn't lead to expected result '/home/tejas/Sites/DSS-React/grocery/grocery/.next/server/app/admin/login/page.js', but to 'Error: Can't resolve '../../../../.next/server/app/admin/login/page' in '/home/tejas/Sites/DSS-React/grocery/grocery/node_modules/next/dist/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/admin/login/page (expected /home/tejas/Sites/DSS-React/grocery/grocery/.next/server/app/admin/login/page.js)
+<w>  at file dependencies /home/tejas/Sites/DSS-React/grocery/grocery/node_modules/next/dist/server/require.js
+<w>  at file /home/tejas/Sites/DSS-React/grocery/grocery/node_modules/next/dist/server/require.js
+<w>  at file dependencies /home/tejas/Sites/DSS-React/grocery/grocery/node_modules/next/dist/server/load-components.js
+<w>  at file /home/tejas/Sites/DSS-React/grocery/grocery/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /home/tejas/Sites/DSS-React/grocery/grocery/node_modules/next/dist/build/utils.js
+<w>  at file /home/tejas/Sites/DSS-React/grocery/grocery/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /home/tejas/Sites/DSS-React/grocery/grocery/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file /home/tejas/Sites/DSS-React/grocery/grocery/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at resolve commonjs /home/tejas/Sites/DSS-React/grocery/grocery/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+ ✓ Compiled in 4.5s (3022 modules)

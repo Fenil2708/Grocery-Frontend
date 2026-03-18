@@ -1,0 +1,146 @@
+
+> grocery@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.35
+  - Environments: .env
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+
+./src/app/admin/banners/add-banner/page.jsx
+129:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/admin/banners/edit/[id]/page.jsx
+156:31  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/admin/category-list/add-category/page.jsx
+132:41  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/admin/category-list/edit/[id]/page.jsx
+160:49  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/admin/category-list/page.jsx
+149:33  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/admin/forgot-password/change-password/page.jsx
+69:7  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+77:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+97:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/admin/forgot-password/page.jsx
+58:7  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+66:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+86:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/admin/home-slides/add-home-slide/page.jsx
+129:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/admin/home-slides/edit/[id]/page.jsx
+156:31  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/admin/home-slides/page.jsx
+128:37  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/admin/login/page.jsx
+146:7  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+154:31  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/admin/my-profile/page.jsx
+181:37  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/admin/products-list/add-product/page.jsx
+254:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/admin/products-list/edit/[id]/page.jsx
+292:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/admin/register/page.jsx
+138:7  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+146:31  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/admin/verify/page.jsx
+93:7  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+101:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+121:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/forgot-password/change-password/page.jsx
+81:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/forgot-password/page.jsx
+70:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/my-account/page.jsx
+198:45  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/my-list/page.jsx
+58:29  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/verify/page.jsx
+105:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/AccountSidebar/index.jsx
+56:29  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/Banners.jsx
+53:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+   Collecting page data ...
+   Generating static pages (0/34) ...
+   Generating static pages (8/34) 
+   Generating static pages (16/34) 
+   Generating static pages (25/34) 
+ ✓ Generating static pages (34/34)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size     First Load JS
+┌ ○ /                                       8.31 kB         208 kB
+├ ○ /_not-found                             880 B          88.5 kB
+├ ○ /address                                8.22 kB         196 kB
+├ ○ /admin                                  103 kB          314 kB
+├ ○ /admin/banners                          2.91 kB         168 kB
+├ ○ /admin/banners/add-banner               3.03 kB         191 kB
+├ ƒ /admin/banners/edit/[id]                3.17 kB         191 kB
+├ ○ /admin/category-list                    2.76 kB         200 kB
+├ ○ /admin/category-list/add-category       3.78 kB         162 kB
+├ ƒ /admin/category-list/edit/[id]          3.9 kB          162 kB
+├ ○ /admin/forgot-password                  2.98 kB         187 kB
+├ ○ /admin/forgot-password/change-password  2.03 kB         186 kB
+├ ○ /admin/home-slides                      2.3 kB          198 kB
+├ ○ /admin/home-slides/add-home-slide       3.04 kB         191 kB
+├ ƒ /admin/home-slides/edit/[id]            3.17 kB         191 kB
+├ ○ /admin/login                            3.54 kB         199 kB
+├ ○ /admin/my-profile                       2.65 kB         191 kB
+├ ○ /admin/orders                           3.86 kB         190 kB
+├ ○ /admin/products-list                    326 B           206 kB
+├ ○ /admin/products-list/add-product        3.17 kB         183 kB
+├ ƒ /admin/products-list/edit/[id]          3.36 kB         183 kB
+├ ○ /admin/register                         2.96 kB         194 kB
+├ ○ /admin/users                            2.87 kB         194 kB
+├ ○ /admin/verify                           2.42 kB         157 kB
+├ ○ /cart                                   3.77 kB         185 kB
+├ ○ /checkout                               8.36 kB         161 kB
+├ ○ /forgot-password                        3.12 kB         187 kB
+├ ○ /forgot-password/change-password        3.16 kB         187 kB
+├ ○ /login                                  4.12 kB         227 kB
+├ ○ /my-account                             4.24 kB         204 kB
+├ ○ /my-list                                4.51 kB         169 kB
+├ ○ /my-orders                              5.62 kB         156 kB
+├ ƒ /product/[ProductId]                    19.9 kB         249 kB
+├ ○ /products                               23.7 kB         214 kB
+├ ○ /register                               4.1 kB          227 kB
+└ ○ /verify                                 3.63 kB         158 kB
++ First Load JS shared by all               87.6 kB
+  ├ chunks/2117-6efce61bd9e3133b.js         31.9 kB
+  ├ chunks/fd9d1056-e335835ea3631206.js     53.6 kB
+  └ other shared chunks (total)             2.03 kB
+
+
+ƒ Middleware                                26.7 kB
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

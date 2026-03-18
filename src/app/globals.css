@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #02B290;
+  --primary-rgb: 2, 178, 144;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdfdfd;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 100px;
+  border: 3px solid #fdfdfd;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}
+
+/* Premium Custom Scrollbar */
+.custom-scrollbar-premium::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar-premium::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar-premium::-webkit-scrollbar-thumb {
+  background: rgba(var(--primary-rgb), 0.1);
+  border-radius: 10px;
+  border: none;
+}
+
+.custom-scrollbar-premium::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--primary-rgb), 0.2);
+}
+
+.container {
+  max-width: 1400px !important;
+  width: 100%;
+  margin: auto;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 44px !important;
+  height: 44px !important;
+  background: #fff !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 16px !important;
+  font-weight: 900 !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  @apply !bg-primary
+}
+
+.swiper-button-next:hover::after,
+.swiper-button-prev:hover::after {
+  color: #fff !important;
+}
+
+/* Material UI Overrides */
+.MuiTabs-list button {
+  font-weight: 700 !important;
+  text-transform: capitalize !important;
+}
+
+.MuiTabs-indicator {
+  height: 3px !important;
+  border-radius: 10px 10px 0 0 !important;
+  background-color: var(--primary) !important;
+}
+
+.Mui-selected {
+  @apply !text-primary
+}
+
+.MuiCircularProgress-root {
+  color: var(--primary) !important;
+}
+
+.MuiCircularProgress-root.white svg {
+  color: #fff !important;
+}
+
+/* Phone Input Customization */
+.premium-phone-input .react-international-phone-country-selector-button {
+  width: 50px !important;
+  height: 56px !important;
+  border: none !important;
+  background: transparent !important;
+  border-radius: 16px 0 0 16px !important;
+}
+
+.premium-phone-input .react-international-phone-input {
+  border: none !important;
+  font-weight: 700 !important;
+  color: #1f2937 !important;
+}
+
+.react-international-phone-country-selector-dropdown {
+  border-radius: 16px !important;
+  border: 1px solid #f3f4f6 !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1) !important;
+  padding: 8px !important;
+  margin-top: 8px !important;
+}
+
+/* Collapsible Animation */
+.ReactCollapse--collapse {
+  transition: height 400ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Range Slider Premium Styles */
+.custom-range-slider {
+  height: 6px !important;
+}
+
+.custom-range-slider .range-slider__range {
+  background-color: var(--primary) !important;
+  border-radius: 10px !important;
+}
+
+.custom-range-slider .range-slider__thumb {
+  background-color: #fff !important;
+  width: 20px !important;
+  height: 20px !important;
+  border: 4px solid var(--primary) !important;
+  box-shadow: 0 4px 12px rgba(2, 178, 144, 0.2) !important;
+  transition: transform 0.2s ease !important;
+}
+
+.custom-range-slider .range-slider__thumb:hover {
+  transform: scale(1.1) !important;
+}
+
+/* Typography Extensions */
+.font-black {
+  font-weight: 900 !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Custom Selection */
+::selection {
+  background: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary);
+}

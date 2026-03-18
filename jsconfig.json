@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@/admin-components/*": [
+        "src/app/admin/components/*"
+      ],
+      "@/admin-context/*": [
+        "src/admin-context/*"
+      ],
+      "@/admin-utils/*": [
+        "src/admin-utils/*"
+      ],
+      "@/admin-firebase": [
+        "src/admin-firebase"
+      ]
+    }
+  }
+}
