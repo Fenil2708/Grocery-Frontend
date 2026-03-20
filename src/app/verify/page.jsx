@@ -89,7 +89,9 @@ const Verify = () => {
         if (res?.error === false) {
           context?.alertBox("success", res?.message);
           Cookies.set("forgotPasswordVerified", "true", { path: "/" });
+
           router.push("/forgot-password/change-password");
+
         } else {
           context?.alertBox("error", res?.message);
         }

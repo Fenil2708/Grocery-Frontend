@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from "react";
 import { MyContext } from "@/context/ThemeProvider";
 import { useRouter, usePathname } from "next/navigation";
 
-const publicPages = ["/login", "/register", "/verify", "/forgot-password"];
+const publicPages = ["/login", "/register", "/verify", "/forgot-password", "/forgot-password/change-password"];
 
 const AuthGuard = ({ children }) => {
   const context = useContext(MyContext);

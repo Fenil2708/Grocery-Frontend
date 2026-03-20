@@ -23,7 +23,8 @@ export default function RootLayout({ children }) {
     pathname === "/admin/login" ||
     pathname === "/admin/register" ||
     pathname === "/admin/verify" ||
-    pathname === "/admin/forgot-password";
+    pathname === "/admin/forgot-password" ||
+    pathname === "/admin/forgot-password/change-password";
 
   useEffect(() => {
     const token = Cookies.get("adminAccessToken");

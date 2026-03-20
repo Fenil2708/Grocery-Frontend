@@ -29,7 +29,7 @@ const ChangePassword = () => {
             return;
           }
           Cookies.remove('actionType');
-      },[])
+      },[context, router])
     
       const onChangeInput = (e) => {
         const { name, value } = e.target;
@@ -47,13 +47,8 @@ const ChangePassword = () => {
         e.preventDefault();
         setIsLoading(true);
     
-        if (formFields.newPassword === "") {
-          context?.alertBox("error", "Please enter your new password");
-          setIsLoading(false);
-          return false;
-        }
-        if (formFields.confirmPassword === "") {
-          context?.alertBox("error", "Please enter your confirm password");
+        if (formFields.newPassword !== formFields.confirmPassword) {
+          context?.alertBox("error", "New password and confirm password do not match");
           setIsLoading(false);
           return false;
         }
@@ -61,9 +56,10 @@ const ChangePassword = () => {
         postData("/api/user/forgot-password/change-password", formFields).then((res)=>{
             if (res?.error === false) {
               setIsLoading(false);
+              context?.alertBox("success", "Password changed successfully! Please login.");
               Cookies.remove('userEmail');
               Cookies.remove('forgotPasswordVerified');
-              router.push("/admin/login");
+              setTimeout(() => router.push("/admin/login"), 1500);
             } else {
               context?.alertBox("error", res?.message);
               setIsLoading(false);

@@ -45,8 +45,9 @@ const ForgotPassword = () => {
     Cookies.set('userEmail', formFields.email, { path: '/' });
 
     postData("/api/user/forgot-password", formFields).then((res) => {
-        if (res?.error !== true) {
+        if (res?.error === false) {
           setIsLoading(false);
+          context?.alertBox("success", res?.message || "OTP sent to your email!");
           router.push("/verify?action=forgot-password");
         } else {
           context?.alertBox("error", res?.message);

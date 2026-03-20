@@ -3,50 +3,48 @@ import { NextResponse } from 'next/server';
 export function middleware(request) {
   const path = request.nextUrl.pathname;
 
-  // Get tokens from cookies
   const userToken = request.cookies.get('accessToken')?.value;
   const adminToken = request.cookies.get('adminAccessToken')?.value;
 
-  // --- ADMIN AUTH LOGIC ---
+  // ---------------- ADMIN ----------------
   if (path.startsWith('/admin')) {
-    // Admin public auth paths
-    const isAdminAuthPath = 
-      path === '/admin/login' || 
-      path === '/admin/register' || 
-      path === '/admin/forgot-password';
 
-    // 1. If logged in as ADMIN, don't allow access to login/register pages
-    if (adminToken && isAdminAuthPath) {
-      return NextResponse.redirect(new URL('/admin', request.url));
-    }
+  const isAdminPublicPath =
+    path === '/admin/login' || 
+    path === '/admin/register' || 
+    path === '/admin/forgot-password' ||
+    path === '/admin/verify' ||
+    path === '/admin/forgot-password/change-password';
 
-    // 2. If NOT logged in as ADMIN, don't allow access to dashboard (protected pages)
-    if (!adminToken && !isAdminAuthPath) {
-      // Allow only the login/register/forgot-password pages if not logged in
-      return NextResponse.redirect(new URL('/admin/login', request.url));
-    }
+  // 🔥 IMPORTANT FIX
+  if (isAdminPublicPath) {
+    return NextResponse.next();
   }
 
-  // --- USER AUTH LOGIC ---
-  const isUserAuthPath = 
-    path === '/login' || 
-    path === '/register' || 
-    path === '/forgot-password';
+  if (!adminToken) {
+    return NextResponse.redirect(new URL('/admin/login', request.url));
+  }
+}
 
-  // User paths that require login (Dashboard, Account, Orders, etc.)
-  const isUserProtectedPath = 
-    path.startsWith('/my-account') || 
-    path.startsWith('/checkout') || 
-    path.startsWith('/my-orders') || 
-    path.startsWith('/my-list') || 
+  // ---------------- USER ----------------
+  const isUserLoginRegisterPath =
+    path === '/login' ||
+    path === '/register' ||
+    path === '/forgot-password' ||
+    path === '/verify' ||
+    path === '/forgot-password/change-password';
+
+  const isUserProtectedPath =
+    path.startsWith('/my-account') ||
+    path.startsWith('/checkout') ||
+    path.startsWith('/my-orders') ||
+    path.startsWith('/my-list') ||
     path.startsWith('/address');
 
-  // 1. If logged in as USER, don't allow access to login/register pages
-  if (userToken && isUserAuthPath) {
+  if (userToken && isUserLoginRegisterPath) {
     return NextResponse.redirect(new URL('/', request.url));
   }
 
-  // 2. If NOT logged in as USER, redirect to login for protected pages
   if (!userToken && isUserProtectedPath) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
@@ -54,17 +52,8 @@ export function middleware(request) {
   return NextResponse.next();
 }
 
-// Match all relevant paths except static files, api routes, icons, etc.
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - pattern.png, logo.png (specific assets)
-     */
     '/((?!api|_next/static|_next/image|favicon.ico|pattern.png|logo.png).*)',
   ],
 };
