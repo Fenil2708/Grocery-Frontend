@@ -48,10 +48,10 @@ export default function RootLayout({ children }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const sidebarClasses = `sidebarWrapper fixed lg:sticky top-0 left-0 z-[100] h-screen bg-white border-r border-gray-200 shadow-md transition-all duration-300 ${
+  const sidebarClasses = `sidebarWrapper fixed lg:sticky top-0 left-0 z-[100] h-screen bg-white border-r border-gray-100 shadow-xl lg:shadow-none transition-all duration-500 ease-in-out ${
     isNavOpen 
-      ? "w-[260px] translate-x-0" 
-      : "w-0 lg:w-[70px] -translate-x-full lg:translate-x-0"
+      ? "w-[280px] translate-x-0" 
+      : "w-0 lg:w-[80px] -translate-x-full lg:translate-x-0"
   }`;
 
   return (
@@ -60,23 +60,26 @@ export default function RootLayout({ children }) {
         {hideLayout ? (
           children
         ) : (
-          <div className="mainWrapper flex min-h-screen bg-[#f1f1f1]">
+          <div className="mainWrapper flex min-h-screen bg-[#f8fafc]">
             <div className={sidebarClasses}>
               <Sidebar isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
             </div>
 
             {isNavOpen && (
               <div 
-                className="fixed inset-0 bg-black/50 z-[90] lg:hidden" 
+                className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[90] lg:hidden transition-all duration-500" 
                 onClick={() => setIsNavOpen(false)}
               />
             )}
 
-            <div className="mainContent flex-1 flex flex-col min-w-0 transition-all duration-300">
+            <div className={`mainContent flex-1 flex flex-col min-w-0 transition-all duration-500 ease-in-out`}>
               <Header setIsNavOpen={setIsNavOpen} isNavOpen={isNavOpen} />
-              <div className="p-4 md:p-6 lg:p-8 flex-1">
+              <main className="p-4 md:p-6 lg:p-10 flex-1 max-w-[1600px] mx-auto w-full">
                 {children}
-              </div>
+              </main>
+              <footer className="p-6 text-center text-[13px] font-bold text-slate-400 bg-white border-t border-slate-50">
+                 &copy; 2026 Admin Dashboard • Premium Management System
+              </footer>
             </div>
           </div>
         )}

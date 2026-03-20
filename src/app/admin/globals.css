@@ -25,10 +25,61 @@ body{background: #f1f1f1;}
 .btn-g{border: 1px solid #02B290 !important; font-weight: 600 !important; color: #fff !important; background: #02B290 !important; padding: 8px 15px !important;}
 .btn-border-g:hover{ color: #353535 !important;}
 
-.MuiTableHead-root th{background: #f1f1f1 !important; font-weight: 600 !important; padding: 10px 16px !important;}
-.MuiTableHead-root th{@apply text-gray-700 !important}
+.MuiTableHead-root th{background: #fff !important; font-weight: 800 !important; padding: 15px 20px !important; text-transform: uppercase; font-size: 11px !important; letter-spacing: 0.1em; border-bottom: 2px solid #f8fafc !important;}
+.MuiTableHead-root th{@apply text-slate-400 !important}
 
-.MuiTableHead-root{padding: 10px 16px !important;}
+.MuiTableRow-root:hover{background-color: #f8fafc !important;}
+.MuiTableCell-root{border-bottom: 1px solid #f8fafc !important; padding: 15px 20px !important;}
+
+/* Custom Table Responsive Wrapper */
+.premium-table-container::-webkit-scrollbar {
+  height: 6px;
+}
+.premium-table-container::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+@media (max-width: 640px) {
+    .MuiTable-root {
+        display: block;
+    }
+    .MuiTableHead-root {
+        display: none; /* Hide header on very small screens */
+    }
+    .MuiTableBody-root {
+        display: block;
+    }
+    .MuiTableRow-root {
+        display: block;
+        margin-bottom: 20px;
+        background: #fff;
+        border-radius: 24px;
+        border: 1px solid #f1f5f9;
+        padding: 10px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    }
+    .MuiTableCell-root {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #f8fafc;
+        text-align: right;
+        padding: 12px 15px !important;
+    }
+    .MuiTableCell-root::before {
+        content: attr(data-label);
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        color: #94a3b8;
+        float: left;
+    }
+    .MuiTableCell-root:last-child {
+        border-bottom: none;
+    }
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

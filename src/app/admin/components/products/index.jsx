@@ -188,72 +188,77 @@ const ProductsComponent = () => {
                         <TableCell padding="checkbox">
                           <Checkbox {...label} size="small" />
                         </TableCell>
-                        <TableCell>
+                        <TableCell data-label="PRODUCT">
                           <div className="flex items-center gap-3">
-                            <div className="img p-1 bg-white rounded-md border border-gray-100">
+                            <div className="img p-1 bg-white rounded-md border border-gray-100 shrink-0">
                               <Image
                                 src={product.images[0] || "/p1.png"}
                                 alt="product image"
                                 width={50}
                                 height={70}
-                                className="object-cover h-[70px] w-[50px]"
+                                className="object-cover h-[70px] w-[50px] rounded-md"
                                 unoptimized
                               />
                             </div>
-                            <div className="info">
-                              <h3 className="text-[13px] text-gray-800 font-[600]">
-                                {product.name?.substr(0, 40)}...
+                            <div className="info min-w-0">
+                              <h3 className="text-[13px] text-gray-800 font-[800] truncate">
+                                {product.name?.substr(0, 40)}
                               </h3>
-                              <span className="text-gray-700 text-[13px]">{product.brand}</span>
+                              <span className="text-gray-400 text-[11px] font-bold uppercase tracking-widest">{product.brand}</span>
                               {product.sku_id && (
-                                <span className="text-gray-500 text-[11px] block mt-1">SKU: {product.sku_id}</span>
+                                <span className="text-primary text-[10px] font-black block mt-1 bg-primary/5 px-2 py-0.5 rounded-md w-fit">SKU: {product.sku_id}</span>
                               )}
                             </div>
                           </div>
                         </TableCell>
 
-                        <TableCell>{product.category?.name || "N/A"}</TableCell>
+                        <TableCell data-label="CATEGORY">
+                            <span className="text-[13px] font-bold text-gray-600 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-100">{product.category?.name || "N/A"}</span>
+                        </TableCell>
 
-                        <TableCell>
-                          <div className="flex flex-col">
-                            <span className="text-[#CB0000] text-[14px] font-[600]">
+                        <TableCell data-label="PRICE">
+                          <div className="flex flex-col items-end md:items-start leading-tight">
+                            <span className="text-red-500 text-[15px] font-black tabular-nums">
                               ${product.price}
                             </span>
-                            <span className="text-[#A4A4A4] text-[14px] font-[600] line-through">
-                              ${product.oldPrice}
-                            </span>
+                            {product.oldPrice > 0 && (
+                                <span className="text-gray-300 text-[12px] font-bold line-through tabular-nums">
+                                ${product.oldPrice}
+                                </span>
+                            )}
                           </div>
                         </TableCell>
 
-                        <TableCell>
-                          <span className="text-primary font-bold">
-                            {product.countInStock}
+                        <TableCell data-label="STOCK">
+                          <span className={`text-[13px] font-black px-3 py-1 rounded-lg ${product.countInStock > 0 ? 'text-primary bg-primary/5' : 'text-red-500 bg-red-50'}`}>
+                            {product.countInStock} In Stock
                           </span>
                         </TableCell>
 
-                        <TableCell>
+                        <TableCell data-label="RATING">
                           <Rating
                             name="read-only"
                             value={product.rating}
                             readOnly
                             size="small"
+                            className="!text-[14px]"
                           />
                         </TableCell>
 
-                        <TableCell>
-                          <div className="flex items-center gap-1">
+                        <TableCell data-label="ACTIONS">
+                          <div className="flex items-center gap-1 justify-end md:justify-start">
                             <Link href={`/admin/products-list/edit/${product._id}`}>
-                              <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !text-gray-900">
-                                <RiEdit2Line size={20} />
+                              <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-2xl !bg-blue-50 !text-blue-600 hover:!bg-blue-600 hover:!text-white transition-all shadow-sm">
+                                <RiEdit2Line size={18} />
                               </Button>
                             </Link>
-                            <Link href={`http://localhost:3000/product/${product._id}`} target="_blank">
-                              <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !text-gray-900">
+                            <Link href={`/product/${product._id}`} target="_blank">
+                              <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-2xl !bg-green-50 !text-green-600 hover:!bg-green-600 hover:!text-white transition-all shadow-sm">
                                 <IoEyeOutline size={20} />
                               </Button>
                             </Link>
                             <Button
-                              className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !text-gray-900"
+                              className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-2xl !bg-red-50 !text-red-500 hover:!bg-red-600 hover:!text-white transition-all shadow-sm"
                               onClick={() => deleteProduct(product._id)}
                             >
                               <FaRegTrashAlt size={16} />

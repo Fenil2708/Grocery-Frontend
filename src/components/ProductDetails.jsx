@@ -171,16 +171,17 @@ const ProductDetailsComponent = ({
             </span>
           </div>
 
-          <div className="flex items-baseline gap-4 mb-8 bg-gray-50/50 p-6 rounded-2xl border border-gray-100/50 shadow-inner">
-              <span className="text-red-500 text-[32px] md:text-[42px] font-black leading-none">
+          <div className="flex items-baseline gap-4 mb-8 bg-slate-50/80 backdrop-blur-sm p-6 md:p-8 rounded-[32px] border border-slate-100 shadow-sm relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors"></div>
+              <span className="text-primary text-[36px] md:text-[48px] font-black leading-none tracking-tighter">
                 ${Number(product.price || 0).toFixed(2)}
               </span>
               {product.oldPrice > 0 && (
                 <div className="flex flex-col">
-                    <span className="text-gray-300 text-[18px] md:text-[22px] font-bold line-through leading-none">
+                    <span className="text-slate-300 text-[18px] md:text-[22px] font-bold line-through leading-none">
                     ${Number(product.oldPrice || 0).toFixed(2)}
                     </span>
-                    <span className="text-red-400 text-[11px] font-black uppercase mt-1">Save {(100 - (product.price/product.oldPrice * 100)).toFixed(0)}%</span>
+                    <span className="bg-red-50 text-red-500 text-[10px] font-black px-2 py-0.5 rounded-md mt-2 uppercase tracking-widest inline-block w-fit">Save {(100 - (product.price/product.oldPrice * 100)).toFixed(0)}%</span>
                 </div>
               )}
           </div>

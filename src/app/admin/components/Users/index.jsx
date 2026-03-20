@@ -139,70 +139,70 @@ const UsersComponent = () => {
                         <TableCell padding="checkbox">
                           <Checkbox {...label} size="small" />
                         </TableCell>
-                        <TableCell>
+                        <TableCell data-label="USER">
                           <div className="flex items-center gap-3">
-                            <div className="img p-1 bg-white rounded-md border border-gray-100">
+                            <div className="img p-1 bg-white rounded-xl border border-gray-100 shrink-0 shadow-sm">
                               <Image
                                 src={user.avatar ? `${process.env.NEXT_PUBLIC_APP_API_URL}/uploads/${user.avatar}` : "/profile.jpg"}
                                 alt="user profile"
-                                width={40}
-                                height={40}
-                                className="object-cover rounded-full h-[40px] w-[40px]"
+                                width={45}
+                                height={45}
+                                className="object-cover rounded-xl h-[45px] w-[45px]"
                                 unoptimized
                               />
                             </div>
-                            <div className="info">
-                              <h3 className="text-[13px] text-gray-800 font-[600]">
+                            <div className="info min-w-0">
+                              <h3 className="text-[14px] text-gray-800 font-black leading-tight truncate px-1">
                                 {user.name}
                               </h3>
-                              <span className="text-gray-700 text-[12px] flex items-center gap-1">
-                                <MdOutlineEmail size={16} />
+                              <span className="text-gray-400 text-[11px] font-bold flex items-center gap-1.5 mt-0.5 truncate bg-gray-50 px-2 py-0.5 rounded-md">
+                                <MdOutlineEmail size={14} className="text-primary" />
                                 {user.email}
                               </span>
                             </div>
                           </div>
                         </TableCell>
 
-                        <TableCell>
+                        <TableCell data-label="ROLE">
                           <span
-                            className={`px-2 py-1 rounded-md text-[12px] font-bold ${
+                            className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest border ${
                               user.role === "ADMIN"
-                                ? "bg-red-100 text-red-600"
-                                : "bg-blue-100 text-blue-600"
+                                ? "bg-red-50 text-red-600 border-red-100"
+                                : "bg-blue-50 text-blue-600 border-blue-100"
                             }`}
                           >
                             {user.role}
                           </span>
                         </TableCell>
 
-                        <TableCell>
-                          <div className="flex items-center gap-1">
-                            <MdOutlinePhone size={18} />
-                            <span className="text-gray-700 text-[13px]">
-                              {user.mobile || "N/A"}
-                            </span>
+                        <TableCell data-label="PHONE">
+                          <div className="flex items-center gap-2 font-black text-[13px] text-gray-500 tabular-nums">
+                            <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400">
+                                <MdOutlinePhone size={18} />
+                            </div>
+                            {user.mobile || "N/A"}
                           </div>
                         </TableCell>
 
-                        <TableCell>
-                          <div className="flex items-center gap-1">
-                            <MdOutlineDateRange size={18} />
-                            <span className="text-gray-700 text-[13px]">
-                              {new Date(user.createdAt).toLocaleDateString()}
-                            </span>
+                        <TableCell data-label="JOINED">
+                          <div className="flex items-center gap-2 font-black text-[13px] text-gray-500 tabular-nums">
+                            <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400">
+                                <MdOutlineDateRange size={18} />
+                            </div>
+                            {new Date(user.createdAt).toLocaleDateString(undefined, { day: '2-digit', month: 'short', year: 'numeric' })}
                           </div>
                         </TableCell>
 
-                        <TableCell>
-                          <div className="flex items-center gap-1">
-                            <Button className="!w-[35px] !h-[35px] !min-w-[35px] !rounded-full !text-gray-900">
-                              <RiEdit2Line size={18} />
-                            </Button>
-                            <Button className="!w-[35px] !h-[35px] !min-w-[35px] !rounded-full !text-gray-900">
-                              <IoEyeOutline size={18} />
-                            </Button>
+                        <TableCell data-label="ACTIONS">
+                          <div className="flex items-center gap-1 justify-end md:justify-start">
+                             <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-2xl !bg-blue-50 !text-blue-600 hover:!bg-blue-600 hover:!text-white transition-all shadow-sm">
+                                <RiEdit2Line size={18} />
+                              </Button>
+                              <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-2xl !bg-green-50 !text-green-600 hover:!bg-green-600 hover:!text-white transition-all shadow-sm">
+                                <IoEyeOutline size={20} />
+                              </Button>
                             <Button
-                              className="!w-[35px] !h-[35px] !min-w-[35px] !rounded-full !text-red-600"
+                              className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-2xl !bg-red-50 !text-red-500 hover:!bg-red-600 hover:!text-white transition-all shadow-sm"
                               onClick={() => deleteUser(user._id)}
                             >
                               <FaRegTrashAlt size={16} />

@@ -27,48 +27,55 @@ const ProductZoom = ({ images = [] }) => {
     Array.isArray(images) && images.length > 0 ? images : ["/product1.png"];
 
   return (
-    <div className="imageWrapper w-full lg:w-[40%]">
-      <div className="isliderWrapper border border-[rgba(0,0,0,0.2)] p-5 rounded-lg overflow-hidden">
-        <Swiper className="bigSlider" ref={zoomSliderBig}>
+    <div className="imageWrapper w-full">
+      <div className="isliderWrapper border border-gray-100 p-2 md:p-4 rounded-[32px] overflow-hidden bg-white shadow-sm transition-all hover:shadow-md">
+        <Swiper 
+          className="bigSlider" 
+          ref={zoomSliderBig}
+          onSlideChange={(swiper) => setSlideIndex(swiper.activeIndex)}
+        >
           {imageList.map((imgUrl, index) => (
             <SwiperSlide key={index}>
-              <div className="item">
-                <InnerImageZoom src={imgUrl} zoomSrc={imgUrl} />
+              <div className="item flex items-center justify-center p-2 rounded-2xl overflow-hidden aspect-square">
+                <InnerImageZoom 
+                  src={imgUrl} 
+                  zoomSrc={imgUrl} 
+                  zoomScale={1.5}
+                  zoomType="hover"
+                  fadeDuration={300}
+                />
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
 
-      <div className="smlSliderWrapper pt-4">
+      <div className="smlSliderWrapper mt-6 md:mt-8">
         <Swiper
-          className="smlSlider"
+          className="smlSlider !px-1"
           slidesPerView={4}
-          spaceBetween={10}
+          spaceBetween={12}
           ref={zoomSliderSml}
           breakpoints={{
-            480: {
-              slidesPerView: 4,
-            },
-            640: {
-              slidesPerView: 5,
-            },
+            480: { slidesPerView: 4 },
+            640: { slidesPerView: 5 },
+            1024: { slidesPerView: 5 },
           }}
         >
           {imageList.map((imgUrl, index) => (
             <SwiperSlide key={index}>
               <div
-                className={`item border ${
+                className={`group relative aspect-square rounded-[20px] cursor-pointer transition-all duration-300 overflow-hidden border-2 ${
                   slideIndex === index
-                    ? "border-primary"
-                    : "border-[rgba(0,0,0,0.1)]"
-                }  p-2 md:p-3 cursor-pointer rounded-md transition-all hover:border-[rgba(0,0,0,0.4)] bg-white`}
+                    ? "border-primary shadow-lg shadow-primary/10 ring-4 ring-primary/5"
+                    : "border-gray-100 hover:border-gray-200"
+                } bg-white p-1.5`}
                 onClick={() => gotToSlide(index)}
               >
-                <div className="relative w-full aspect-square">
+                <div className="relative w-full h-full rounded-2xl overflow-hidden">
                   <Image
                     src={imgUrl}
-                    className="object-contain"
+                    className="object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500"
                     alt="product image"
                     fill
                     unoptimized

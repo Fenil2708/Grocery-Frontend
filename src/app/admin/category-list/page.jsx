@@ -144,41 +144,44 @@ const CategoryList = () => {
                     categories.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((cat, index) => {
                       return (
                         <TableRow key={index} hover role="checkbox" tabIndex={-1}>
-                          <TableCell className="!py-2">
-                             <div className="img bg-white rounded-md border border-gray-200 overflow-hidden w-[50px] h-[50px]">
-                                <img
-                                    src={cat.images[0]}
+                          <TableCell data-label="IMAGE" className="!py-4">
+                             <div className="img bg-white rounded-xl border border-slate-100 overflow-hidden w-[60px] h-[60px] shadow-sm p-1 shrink-0 mx-auto md:mx-0">
+                                <Image
+                                    src={cat.images[0] || "/p1.png"}
                                     alt={cat.name}
-                                    className="w-full h-full object-cover"
+                                    width={60}
+                                    height={60}
+                                    className="w-full h-full object-cover rounded-lg"
+                                    unoptimized
                                 />
                              </div>
                           </TableCell>
 
-                          <TableCell>
-                            <span className="font-medium text-gray-700">{cat.name}</span>
+                          <TableCell data-label="CATEGORY NAME">
+                            <span className="font-black text-slate-800 text-[15px]">{cat.name}</span>
                           </TableCell>
 
-                          <TableCell>
-                             <div className="flex items-center gap-2">
-                                <div className="w-4 h-4 rounded-full border border-gray-300" style={{backgroundColor: cat.color}}></div>
-                                <span className="text-[13px]">{cat.color}</span>
+                          <TableCell data-label="COLOR">
+                             <div className="flex items-center gap-2 justify-end md:justify-start">
+                                <div className="w-5 h-5 rounded-lg border-2 border-white shadow-sm ring-1 ring-slate-200" style={{backgroundColor: cat.color}}></div>
+                                <span className="text-[12px] font-black tabular-nums text-slate-500 bg-slate-50 px-2 py-0.5 rounded-md uppercase tracking-widest">{cat.color}</span>
                              </div>
                           </TableCell>
 
-                          <TableCell>
-                            <div className="flex items-center gap-1">
+                          <TableCell data-label="ACTIONS">
+                            <div className="flex items-center gap-1 justify-end md:justify-start">
                               <Link href={`/admin/category-list/edit/${cat._id}`}>
-                                <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !text-blue-600 bg-blue-50 hover:bg-blue-100">
-                                  <RiEdit2Line size={20} />
+                                <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-2xl !bg-blue-50 !text-blue-600 hover:!bg-blue-600 hover:!text-white transition-all shadow-sm">
+                                  <RiEdit2Line size={18} />
                                 </Button>
                               </Link>
-                              <Link href={`http://localhost:3000/products?category=${cat._id}`} target="_blank">
-                                <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !text-green-600 bg-green-50 hover:bg-green-100">
+                              <Link href={`/products?category=${cat._id}`} target="_blank">
+                                <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-2xl !bg-green-50 !text-green-600 hover:!bg-green-600 hover:!text-white transition-all shadow-sm">
                                   <IoEyeOutline size={20} />
                                 </Button>
                               </Link>
                               <Button 
-                                className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !text-red-600 bg-red-50 hover:bg-red-100"
+                                className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-2xl !bg-red-50 !text-red-500 hover:!bg-red-600 hover:!text-white transition-all shadow-sm"
                                 onClick={() => deleteCategory(cat._id)}
                               >
                                 <FaRegTrashAlt size={16} />

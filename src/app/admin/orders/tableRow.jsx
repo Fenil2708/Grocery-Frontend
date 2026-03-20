@@ -61,29 +61,29 @@ const OrderRow = ({ order, onStatusChange }) => {
 
   return (
     <>
-      <tr className="border-b-[1px] border-[rgba(0,0,0,0.1)] hover:bg-gray-50">
+      <tr className="border-b-[1px] border-[rgba(0,0,0,0.05)] hover:bg-slate-50/50 transition-colors group">
         {/* Expand toggle */}
-        <td className="text-[14px] text-gray-700 px-4 py-2 font-bold">
+        <td className="px-4 py-4">
           <Button
-            className="!min-w-[40px] !h-[40px] !w-[40px] !rounded-full !text-gray-500 !bg-gray-100 hover:!bg-gray-200"
+            className="!min-w-[40px] !h-[40px] !w-[40px] !rounded-2xl !text-slate-400 !bg-slate-50 hover:!bg-primary hover:!text-white transition-all shadow-sm"
             onClick={() => setExpendIndex(!expendIndex)}
           >
             <FaAngleDown
-              size={20}
-              className={`transition-all ${expendIndex ? "rotate-180" : ""}`}
+              size={18}
+              className={`transition-transform duration-300 ${expendIndex ? "rotate-180" : ""}`}
             />
           </Button>
         </td>
 
         {/* Order ID */}
-        <td className="text-[14px] text-gray-700 px-4 py-2 font-bold whitespace-nowrap">
-          #{order?._id?.toString().slice(-6).toUpperCase()}
+        <td data-label="ORDER ID" className="text-[13px] text-slate-900 px-4 py-4 font-black whitespace-nowrap tabular-nums">
+          <span className="bg-slate-100 px-2 py-1 rounded-md text-[11px]">#{order?._id?.toString().slice(-6).toUpperCase()}</span>
         </td>
 
         {/* Customer */}
-        <td className="text-[14px] text-gray-700 font-[500] px-4 py-2">
-          <div className="flex items-center gap-3 w-[260px]">
-            <div className="rounded-full w-[45px] h-[45px] overflow-hidden flex-shrink-0 bg-gray-200">
+        <td data-label="CUSTOMER" className="px-4 py-4">
+          <div className="flex items-center gap-3 w-full max-w-[260px]">
+            <div className="rounded-xl w-[45px] h-[45px] overflow-hidden flex-shrink-0 bg-slate-100 border border-slate-200">
               {user?.avatar ? (
                 <Image
                   src={user.avatar}
@@ -94,16 +94,16 @@ const OrderRow = ({ order, onStatusChange }) => {
                   unoptimized
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center text-gray-500 text-[18px] font-bold">
+                <div className="w-full h-full flex items-center justify-center text-slate-400 text-[18px] font-black">
                   {user?.name?.charAt(0)?.toUpperCase() || "U"}
                 </div>
               )}
             </div>
-            <div className="info flex flex-col gap-0">
-              <span className="text-gray-800 text-[14px] font-[600]">
+            <div className="info flex flex-col min-w-0">
+              <span className="text-slate-900 text-[14px] font-black leading-tight truncate">
                 {user?.name || "—"}
               </span>
-              <span className="text-gray-500 text-[13px]">
+              <span className="text-slate-400 text-[12px] font-bold truncate">
                 {user?.email || "—"}
               </span>
             </div>
@@ -111,52 +111,52 @@ const OrderRow = ({ order, onStatusChange }) => {
         </td>
 
         {/* Payment ID & Status */}
-        <td className="text-[14px] text-gray-700 font-[500] px-4 py-2 whitespace-nowrap">
-          <div className="flex flex-col">
-            <span className="font-bold">{order?.paymentId || "—"}</span>
-            <span className={`text-[11px] uppercase font-bold ${order?.payment_status?.toLowerCase() === 'paid' ? 'text-green-600' : 'text-red-500'}`}>
+        <td data-label="PAYMENT" className="px-4 py-4 whitespace-nowrap">
+          <div className="flex flex-col items-end md:items-start">
+            <span className="font-black text-[13px] text-slate-600 tabular-nums">{order?.paymentId || "—"}</span>
+            <span className={`text-[10px] uppercase font-black px-2 py-0.5 rounded-md mt-1 ${order?.payment_status?.toLowerCase() === 'paid' ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-500'}`}>
               {order?.payment_status || "Pending"}
             </span>
           </div>
         </td>
 
         {/* Phone Number */}
-        <td className="text-[14px] text-gray-700 font-[500] px-4 py-2 whitespace-nowrap">
+        <td data-label="PHONE" className="text-[13px] text-slate-600 font-black px-4 py-4 whitespace-nowrap tabular-nums">
           {user?.mobile ? `+${user.mobile}` : address?.mobile ? `+${address.mobile}` : "—"}
         </td>
 
         {/* Address */}
-        <td className="text-[14px] text-gray-700 font-[500] px-4 py-2">
-          <div className="w-[300px] py-2">
+        <td data-label="ADDRESS" className="px-4 py-4">
+          <div className="w-full max-w-[300px] flex flex-col items-end md:items-start">
             {address?.addressType && (
-              <span className="bg-gray-100 rounded-md px-2 py-1 border border-[rgba(0,0,0,0.1)] text-[12px] mb-1 inline-block">
+              <span className="bg-primary/5 text-primary rounded-md px-2 py-0.5 font-black text-[10px] uppercase tracking-widest mb-1.5 border border-primary/10">
                 {address.addressType}
               </span>
             )}
-            <p className="pt-1 text-[13px] leading-snug">
+            <p className="text-[12px] font-bold text-slate-500 leading-tight text-right md:text-left">
               {fullAddress || "—"}
             </p>
           </div>
         </td>
 
         {/* Pincode */}
-        <td className="text-[14px] text-gray-700 font-[500] px-4 py-2 whitespace-nowrap">
+        <td data-label="PINCODE" className="text-[13px] text-slate-600 font-black px-4 py-4 whitespace-nowrap tabular-nums">
           {address?.pincode || "—"}
         </td>
 
         {/* Total Amount */}
-        <td className="text-[14px] text-gray-700 px-4 py-2 whitespace-nowrap font-bold">
+        <td data-label="TOTAL" className="text-[16px] text-primary px-4 py-4 whitespace-nowrap font-black tabular-nums">
           ${order?.totalAmt?.toFixed(2) || "0.00"}
         </td>
 
         {/* User ID */}
-        <td className="text-[13px] px-4 py-2 whitespace-nowrap text-primary font-bold">
-          {user?._id || "—"}
+        <td data-label="USER ID" className="text-[11px] px-4 py-4 whitespace-nowrap text-slate-400 font-bold tabular-nums">
+          {user?._id?.slice(-8) || "—"}
         </td>
 
         {/* Order Status */}
-        <td className="text-[14px] text-gray-700 font-[500] px-4 py-2">
-          <div className="flex items-center gap-2">
+        <td data-label="STATUS" className="px-4 py-4">
+          <div className="flex items-center gap-2 justify-end md:justify-start">
             <Select
               value={orderStatus}
               onChange={handleStatusChange}
@@ -164,22 +164,27 @@ const OrderRow = ({ order, onStatusChange }) => {
               inputProps={{ "aria-label": "Order Status" }}
               size="small"
               disabled={updating}
-              sx={{ minWidth: 120, fontSize: "13px" }}
+              className="!bg-white !rounded-xl !text-[12px] !font-black !h-[40px] !min-w-[120px] shadow-sm border-slate-100"
+              sx={{ 
+                '& .MuiSelect-select': { py: '8px', px: '12px' },
+                '& fieldset': { border: '1px solid #f1f5f9 !important' },
+                '&:hover fieldset': { borderColor: '#02B290 !important' }
+              }}
             >
-              <MenuItem value="confirm">Confirm</MenuItem>
-              <MenuItem value="ordered">Ordered</MenuItem>
-              <MenuItem value="delivered">Delivered</MenuItem>
-              <MenuItem value="cancelled">Cancelled</MenuItem>
-              <MenuItem value="pending">Pending</MenuItem>
+              <MenuItem value="confirm" className="!text-[13px] !font-bold">Confirm</MenuItem>
+              <MenuItem value="ordered" className="!text-[13px] !font-bold">Ordered</MenuItem>
+              <MenuItem value="delivered" className="!text-[13px] !font-bold">Delivered</MenuItem>
+              <MenuItem value="cancelled" className="!text-[13px] !font-bold">Cancelled</MenuItem>
+              <MenuItem value="pending" className="!text-[13px] !font-bold">Pending</MenuItem>
             </Select>
-            {updating && <CircularProgress size={16} />}
+            {updating && <CircularProgress size={16} className="!text-primary" />}
           </div>
         </td>
 
         {/* Date */}
-        <td className="text-[14px] text-gray-700 font-[500] px-4 py-2 whitespace-nowrap">
-          <div className="flex items-center gap-1">
-            <MdDateRange size={18} />
+        <td data-label="DATE" className="text-[13px] text-slate-500 font-black px-4 py-4 whitespace-nowrap tabular-nums text-right md:text-left">
+          <div className="flex items-center gap-1.5 justify-end md:justify-start">
+            <MdDateRange size={16} className="text-slate-300" />
             {formattedDate}
           </div>
         </td>

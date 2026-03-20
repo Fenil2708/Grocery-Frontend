@@ -49,6 +49,31 @@
   max-width: 1400px !important;
   width: 100%;
   margin: auto;
+  padding: 0 15px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 25px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+/* Responsive Thin Scrollbar */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border: none;
+  }
 }
 
 /* Glassmorphism */
