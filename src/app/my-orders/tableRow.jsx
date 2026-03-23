@@ -33,7 +33,7 @@ const OrderRow = ({ order, onCancel }) => {
         </td>
         <td className="px-6 py-4">
            <span className={`px-4 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest border ${
-            order?.order_status === 'confirm' ? 'bg-blue-50 text-blue-600 border-blue-100' :
+            order?.order_status === 'confirm' ? 'bg-primary/10 text-primary border-primary/20' :
             order?.order_status === 'delivered' ? 'bg-green-50 text-green-600 border-green-100' :
             order?.order_status === 'cancelled' ? 'bg-red-50 text-red-600 border-red-100' :
             'bg-orange-50 text-orange-600 border-orange-100'
@@ -72,7 +72,7 @@ const OrderRow = ({ order, onCancel }) => {
                     </div>
 
                     <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden group/card flex flex-col justify-center items-center">
-                        <div className="absolute top-0 left-0 w-1 h-full bg-blue-500/20 group-hover/card:bg-blue-500 transition-colors"></div>
+                        <div className="absolute top-0 left-0 w-1 h-full bg-primary/20 group-hover/card:bg-primary transition-colors"></div>
                         <h4 className="text-[11px] font-black text-gray-300 uppercase tracking-[0.2em] mb-4 w-full text-left">Actions</h4>
                         
                         {order?.order_status !== 'delivered' && order?.order_status !== 'cancelled' ? (

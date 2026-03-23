@@ -19,6 +19,9 @@ module.exports = {
         primary: "#02B290",
         secondary: "#353535",
       },
+      ringColor: {
+        DEFAULT: "#02B290",
+      },
     },
   },
   plugins: [],

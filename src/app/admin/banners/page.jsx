@@ -103,7 +103,7 @@ const Banners = () => {
 
                     <TableCell>
                       {banner.category ? (
-                        <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                        <span className="bg-primary/10 text-primary text-xs font-medium px-2.5 py-0.5 rounded">
                           Category: {banner.category.name}
                         </span>
                       ) : banner.product ? (

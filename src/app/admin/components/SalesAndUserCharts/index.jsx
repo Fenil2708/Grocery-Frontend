@@ -45,7 +45,7 @@ const SalesAndUsersCharts = () => {
             Growth Analytics
           </h2>
           <p className="text-[12px] text-slate-400 font-black uppercase tracking-widest mt-2 flex items-center gap-2">
-            <span className={`w-2 h-2 rounded-full ${isActiveChart === 0 ? 'bg-primary' : 'bg-blue-500'}`}></span>
+            <span className={`w-2 h-2 rounded-full ${isActiveChart === 0 ? 'bg-primary' : 'bg-emerald-500'}`}></span>
             {isActiveChart === 0 ? 'Monthly Revenue Performance' : 'User Base Expansion'}
           </p>
         </div>
@@ -59,7 +59,7 @@ const SalesAndUsersCharts = () => {
           </Button>
 
           <Button
-            className={`!capitalize !font-black !px-6 !py-2.5 !rounded-xl !text-[13px] transition-all ${isActiveChart === 1 ? '!text-white !bg-blue-500 shadow-lg shadow-blue-500/20' : '!text-slate-400 hover:!bg-white'}`}
+            className={`!capitalize !font-black !px-6 !py-2.5 !rounded-xl !text-[13px] transition-all ${isActiveChart === 1 ? '!text-white !bg-emerald-500 shadow-lg shadow-emerald-500/20' : '!text-slate-400 hover:!bg-white'}`}
             onClick={() => setIsActiveChart(1)}
           >
             Users
@@ -81,8 +81,8 @@ const SalesAndUsersCharts = () => {
                 <stop offset="95%" stopColor="#02B290" stopOpacity={0} />
               </linearGradient>
               <linearGradient id="colorUsers" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.15} />
-                <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+                <stop offset="5%" stopColor="#10b981" stopOpacity={0.15} />
+                <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
               </linearGradient>
             </defs>
             <CartesianGrid strokeDasharray="8 8" vertical={false} stroke="#f1f5f9" />
@@ -129,7 +129,7 @@ const SalesAndUsersCharts = () => {
               <Area
                 type="monotone"
                 dataKey="users"
-                stroke="#3b82f6"
+                stroke="#10b981"
                 strokeWidth={4}
                 fillOpacity={1}
                 fill="url(#colorUsers)"

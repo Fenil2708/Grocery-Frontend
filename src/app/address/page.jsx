@@ -3,7 +3,7 @@ import AccountSidebar from "@/components/AccountSidebar";
 import { MyContext } from "@/context/ThemeProvider";
 import { Button, CircularProgress, Dialog, DialogContent, DialogTitle, MenuItem, Select } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
-import { FiMapPin, FiPlus, FiX } from "react-icons/fi";
+import { FiMapPin, FiPlus, FiX, FiAlertTriangle } from "react-icons/fi";
 import AddressBox from "./addressBox";
 import { fetchDataFromApi, postData, putData, deleteData } from "@/utils/api";
 
@@ -20,12 +20,14 @@ const emptyForm = {
 
 const Address = () => {
   const context = useContext(MyContext);
-  const [addresses, setAddresses] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingAddress, setEditingAddress] = useState(null); // null = adding new
   const [formData, setFormData] = useState(emptyForm);
+  const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     loadAddresses();
@@ -33,16 +35,8 @@ const Address = () => {
 
   const loadAddresses = async () => {
     setIsLoading(true);
-    try {
-      const res = await fetchDataFromApi("/api/address");
-      if (res?.success) {
-        setAddresses(res.data || []);
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setIsLoading(false);
-    }
+    await context.getAddressList();
+    setIsLoading(false);
   };
 
   const openAddDialog = () => {
@@ -106,18 +100,28 @@ const Address = () => {
     }
   };
 
-  const handleDelete = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this address?")) return;
+  const handleDelete = (id) => {
+    setDeleteId(id);
+    setDeleteConfirmOpen(true);
+  };
+
+  const confirmDelete = async () => {
+    if (!deleteId) return;
+    setIsDeleting(true);
     try {
-      const res = await deleteData(`/api/address/delete/${id}`);
+      const res = await deleteData(`/api/address/delete/${deleteId}`);
       if (res?.success) {
         context?.alertBox("success", "Address deleted successfully!");
+        setDeleteConfirmOpen(false);
         loadAddresses();
       } else {
         context?.alertBox("error", res?.message || "Failed to delete address");
       }
     } catch (err) {
       context?.alertBox("error", "An error occurred");
+    } finally {
+      setIsDeleting(false);
+      setDeleteId(null);
     }
   };
 
@@ -152,7 +156,7 @@ const Address = () => {
                   <CircularProgress size={40} className="text-primary" />
                   <p className="text-gray-400 font-bold mt-4 uppercase text-[11px] tracking-widest">Loading Addresses...</p>
                 </div>
-              ) : addresses.length === 0 ? (
+              ) : context.addressList.length === 0 ? (
                 <div className="py-20 text-center bg-gray-50/50 rounded-3xl border-2 border-dashed border-gray-100 flex flex-col items-center">
                   <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-4">
                       <FiMapPin className="text-gray-300" size={30} />
@@ -161,7 +165,7 @@ const Address = () => {
                 </div>
               ) : (
                 <div className="grid grid-cols-1 gap-4">
-                    {addresses.map((addr) => (
+                    {context.addressList.map((addr) => (
                     <AddressBox
                         key={addr._id}
                         address={addr}
@@ -333,6 +337,43 @@ const Address = () => {
               </Button>
             </div>
           </form>
+        </DialogContent>
+      </Dialog>
+      {/* Delete Confirmation Dialog */}
+      <Dialog 
+        open={deleteConfirmOpen} 
+        onClose={() => !isDeleting && setDeleteConfirmOpen(false)}
+        PaperProps={{
+          sx: { borderRadius: '24px', padding: '10px' }
+        }}
+      >
+        <DialogContent className="!p-8">
+          <div className="flex flex-col items-center text-center">
+            <div className="w-20 h-20 bg-red-50 rounded-3xl flex items-center justify-center mb-6 text-red-500">
+               <FiAlertTriangle size={40} />
+            </div>
+            <h2 className="text-[22px] font-black text-gray-800 tracking-tight leading-none mb-3">Delete Address?</h2>
+            <p className="text-gray-400 font-medium text-[15px] leading-relaxed max-w-[280px]">Are you sure you want to remove this address? This action cannot be undone.</p>
+            
+            <div className="flex items-center gap-3 w-full mt-8">
+              <Button 
+                fullWidth 
+                className="!h-[56px] !rounded-2xl !bg-gray-100 !text-gray-500 !font-black !capitalize hover:!bg-gray-200 transition-all"
+                onClick={() => setDeleteConfirmOpen(false)}
+                disabled={isDeleting}
+              >
+                Keep it
+              </Button>
+              <Button 
+                fullWidth 
+                className="!h-[56px] !rounded-2xl !bg-red-500 !text-white !font-black !capitalize shadow-lg shadow-red-200 hover:!bg-red-600 active:scale-95 transition-all"
+                onClick={confirmDelete}
+                disabled={isDeleting}
+              >
+                {isDeleting ? <CircularProgress size={24} color="inherit" /> : "Yes, Delete"}
+              </Button>
+            </div>
+          </div>
         </DialogContent>
       </Dialog>
     </section>

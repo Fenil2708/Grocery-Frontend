@@ -11,6 +11,21 @@
 ::-webkit-scrollbar-thumb{background: #02B290;}
 ::-webkit-scrollbar-track{background: #fff;}
 
+:root {
+  --swiper-theme-color: #02B290 !important;
+  --swiper-navigation-color: #02B290 !important;
+  --swiper-pagination-color: #02B290 !important;
+}
+
+/* Override any default blue theme colors */
+.text-blue-500, .text-blue-600, .text-blue-800 {
+  color: #02B290 !important;
+}
+
+.bg-blue-50, .bg-blue-100 {
+  background-color: rgba(2, 178, 144, 0.1) !important;
+}
+
 body{background: #f1f1f1;}
 
 .container{width: 96%; margin: auto;}

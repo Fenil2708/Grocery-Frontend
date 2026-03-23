@@ -24,6 +24,7 @@ const ThemeProvider = ({ children }) => {
   });
   const [cartData, setCartData] = useState([]);
   const [myListData, setMyListData] = useState([]);
+  const [addressList, setAddressList] = useState([]);
 
   const router = useRouter();
   const pathname = usePathname();
@@ -36,6 +37,7 @@ const ThemeProvider = ({ children }) => {
       getUserData();
       getCartData();
       getMyListData();
+      getAddressList();
       // router.push("/"); // Don't redirect automatically on refresh unless needed
     }
   }, [isLogin]);
@@ -71,6 +73,17 @@ const ThemeProvider = ({ children }) => {
       }
     } catch (error) {
       console.log("Error fetching my list", error);
+    }
+  };
+
+  const getAddressList = async () => {
+    try {
+      const response = await fetchDataFromApi("/api/address");
+      if (response?.success) {
+        setAddressList(response.data || []);
+      }
+    } catch (error) {
+      console.log("Error fetching addresses", error);
     }
   };
 
@@ -165,9 +178,13 @@ const ThemeProvider = ({ children }) => {
     getCartData,
     myListData,
     setMyListData,
-    getMyListData,
+    getAddressList,
+    addressList,
+    setAddressList,
     postData,
     fetchDataFromApi,
+    deleteData,
+    putData,
     addToCart,
     updateCartQty,
     removeFromCart,

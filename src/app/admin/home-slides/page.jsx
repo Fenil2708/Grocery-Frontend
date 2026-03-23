@@ -138,7 +138,7 @@ const HomeSlides = () => {
 
                           <TableCell>
                             {slide.category ? (
-                              <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                              <span className="bg-primary/10 text-primary text-xs font-medium px-2.5 py-0.5 rounded">
                                 Category: {slide.category.name}
                               </span>
                             ) : slide.product ? (
@@ -153,7 +153,7 @@ const HomeSlides = () => {
                           <TableCell>
                             <div className="flex items-center gap-1">
                               <Link href={`/admin/home-slides/edit/${slide._id}`}>
-                                <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !text-blue-600 bg-blue-50 hover:bg-blue-100">
+                                <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !text-primary bg-primary/5 hover:bg-primary/20">
                                   <RiEdit2Line size={20} />
                                 </Button>
                               </Link>

@@ -164,8 +164,11 @@ const Register = () => {
                 onChange={onChangeInput}
                 disabled={isLoading}
                 value={formFields.name}
+                InputLabelProps={{
+                    sx: { '&.Mui-focused': { color: '#02B290' } }
+                }}
                 InputProps={{
-                    sx: { borderRadius: '14px', backgroundColor: '#f9f9f9', '& fieldset': { border: 'none' } }
+                    sx: { borderRadius: '14px', backgroundColor: '#f9f9f9', '& fieldset': { border: 'none' }, '&:hover fieldset': { border: 'none' }, '&.Mui-focused fieldset': { border: 'none' } }
                 }}
               />
             </div>
@@ -180,8 +183,11 @@ const Register = () => {
                 onChange={onChangeInput}
                 disabled={isLoading}
                 value={formFields.email}
+                InputLabelProps={{
+                    sx: { '&.Mui-focused': { color: '#02B290' } }
+                }}
                 InputProps={{
-                    sx: { borderRadius: '14px', backgroundColor: '#f9f9f9', '& fieldset': { border: 'none' } }
+                    sx: { borderRadius: '14px', backgroundColor: '#f9f9f9', '& fieldset': { border: 'none' }, '&:hover fieldset': { border: 'none' }, '&.Mui-focused fieldset': { border: 'none' } }
                 }}
               />
             </div>
@@ -196,8 +202,11 @@ const Register = () => {
                 onChange={onChangeInput}
                 disabled={isLoading}
                 value={formFields.password}
+                InputLabelProps={{
+                    sx: { '&.Mui-focused': { color: '#02B290' } }
+                }}
                 InputProps={{
-                    sx: { borderRadius: '14px', backgroundColor: '#f9f9f9', '& fieldset': { border: 'none' } }
+                    sx: { borderRadius: '14px', backgroundColor: '#f9f9f9', '& fieldset': { border: 'none' }, '&:hover fieldset': { border: 'none' }, '&.Mui-focused fieldset': { border: 'none' } }
                 }}
               />
 

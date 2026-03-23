@@ -180,7 +180,7 @@ const MyProfile = () => {
                                 {preview ? (
                                     <img src={preview} alt="Avatar" className="w-full h-full object-cover" />
                                 ) : (
-                                    <div className="w-full h-full bg-blue-500 flex items-center justify-center text-white text-4xl font-bold">
+                                    <div className="w-full h-full bg-primary flex items-center justify-center text-white text-4xl font-bold">
                                         {userForm.name.charAt(0).toUpperCase()}
                                     </div>
                                 )}

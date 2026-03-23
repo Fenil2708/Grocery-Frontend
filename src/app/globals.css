@@ -5,7 +5,28 @@
 :root {
   --primary: #02B290;
   --primary-rgb: 2, 178, 144;
+  --swiper-theme-color: #02B290 !important;
+  --swiper-navigation-color: #02B290 !important;
+  --swiper-pagination-color: #02B290 !important;
 }
+
+/* Global blue color override for certain components */
+.text-blue-500, .text-blue-600 {
+  color: var(--primary) !important;
+}
+
+.bg-blue-500, .bg-blue-600 {
+  background-color: var(--primary) !important;
+}
+
+.border-blue-500, .border-blue-600 {
+  border-color: var(--primary) !important;
+}
+
+.ring-blue-500, .ring-blue-600 {
+  --tw-ring-color: rgba(var(--primary-rgb), 0.5) !important;
+}
+
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -99,19 +120,24 @@
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
-  font-size: 16px !important;
+  font-size: 18px !important;
   font-weight: 900 !important;
+  color: var(--primary) !important;
+  transition: all 0.3s ease !important;
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  @apply !bg-primary
+  background: var(--primary) !important;
 }
 
 .swiper-button-next:hover::after,
-.swiper-button-prev:hover::after {
+.swiper-button-prev:hover::after,
+.swiper-button-next:hover svg,
+.swiper-button-prev:hover svg {
   color: #fff !important;
 }
+
 
 /* Material UI Overrides */
 .MuiTabs-list button {
@@ -127,6 +153,19 @@
 
 .Mui-selected {
   @apply !text-primary
+}
+
+/* MUI Focus Color Overrides */
+.MuiFormLabel-root.Mui-focused {
+  color: var(--primary) !important;
+}
+
+.MuiInputBase-root.Mui-focused fieldset {
+  border-color: var(--primary) !important;
+}
+
+.MuiInputBase-root.Mui-focused {
+  --tw-ring-color: var(--primary) !important;
 }
 
 .MuiCircularProgress-root {

@@ -171,7 +171,7 @@ const CategoryList = () => {
                           <TableCell data-label="ACTIONS">
                             <div className="flex items-center gap-1 justify-end md:justify-start">
                               <Link href={`/admin/category-list/edit/${cat._id}`}>
-                                <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-2xl !bg-blue-50 !text-blue-600 hover:!bg-blue-600 hover:!text-white transition-all shadow-sm">
+                                <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-2xl !bg-primary/10 !text-primary hover:!bg-primary hover:!text-white transition-all shadow-sm">
                                   <RiEdit2Line size={18} />
                                 </Button>
                               </Link>

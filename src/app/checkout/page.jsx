@@ -12,29 +12,17 @@ import { MdOutlineLocationOn } from "react-icons/md";
 const Checkout = () => {
   const context = useContext(MyContext);
   const router = useRouter();
-  const [addressList, setAddressList] = useState([]);
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0);
   const [paymentMethod, setPaymentMethod] = useState("razorpay");
 
   useEffect(() => {
-    fetchAddresses();
     if (context.cartData?.length > 0) {
       const total = context.cartData.reduce((acc, item) => acc + (item.price * item.quantity), 0);
       setTotalPrice(total);
     }
   }, [context.cartData]);
 
-  const fetchAddresses = async () => {
-    try {
-      const res = await fetchDataFromApi("/api/address");
-      if (res.success) {
-        setAddressList(res.data || []);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const loadRazorpay = () => {
     return new Promise((resolve) => {
@@ -111,10 +99,10 @@ const Checkout = () => {
           prefill: {
             name: (context.user?.name && context.user.name !== "undefined" && context.user.name !== "null" && context.user.name.trim() !== "") ? context.user.name : "Customer",
             email: (context.user?.email && context.user.email !== "undefined" && context.user.email !== "null" && context.user.email.trim() !== "") ? context.user.email : "customer@example.com",
-            contact: addressList.find(a => a._id === selectedAddress)?.mobile || "9999999999",
+            contact: context.addressList.find(a => a._id === selectedAddress)?.mobile || "9999999999",
           },
           theme: {
-            color: "#2bbef9",
+            color: "#02B290",
           },
         };
 
@@ -196,8 +184,8 @@ const Checkout = () => {
 
               <div className="p-8 md:p-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {addressList.length > 0 ? (
-                    addressList.map((addr, index) => (
+                    {context.addressList && context.addressList.length > 0 ? (
+                    context.addressList.map((addr, index) => (
                         <label 
                             key={index} 
                             className={`relative group cursor-pointer transition-all duration-500 scale-100 active:scale-[0.98] ${
@@ -214,7 +202,7 @@ const Checkout = () => {
                             />
                             <div className={`h-full p-8 rounded-[28px] border-2 transition-all duration-500 relative overflow-hidden ${
                                 selectedAddress === addr._id 
-                                ? 'bg-white border-primary shadow-[0_20px_40px_rgba(43,190,249,0.12)]' 
+                                ? 'bg-white border-primary shadow-[0_20px_40px_rgba(2,178,144,0.12)]' 
                                 : 'bg-white border-gray-100 hover:border-gray-200 hover:shadow-[0_10px_30px_rgba(0,0,0,0.03)]'
                             }`}>
                                 {selectedAddress === addr._id && (
@@ -376,7 +364,7 @@ const Checkout = () => {
 
                    <div className="mt-10">
                      <Button 
-                        className="!w-full !bg-primary !text-white !font-black !rounded-[24px] !text-[17px] !capitalize shadow-[0_20px_40px_rgba(43,190,249,0.3)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 !h-[64px]" 
+                        className="!w-full !bg-primary !text-white !font-black !rounded-[24px] !text-[17px] !capitalize shadow-[0_20px_40px_rgba(2,178,144,0.3)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 !h-[64px]" 
                         onClick={handleCheckout}
                      >
                         {paymentMethod === "razorpay" ? "🚀 Complete Secure Pay" : "✅ Finish & Place Order"}

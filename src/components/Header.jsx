@@ -160,7 +160,7 @@ const Header = () => {
                                 fontSize: '14px',
                                 fontWeight: '800',
                                 color: '#4b5563',
-                                '&:hover': { backgroundColor: '#f9fafb', color: '#2bbef9' },
+                                '&:hover': { backgroundColor: 'rgba(2, 178, 144, 0.05)', color: '#02B290' },
                                 mb: 0.5
                             }
                           },
@@ -169,7 +169,7 @@ const Header = () => {
                       transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                       anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                     >
-                      <MenuItem onClick={() => router.push("/my-account")}>
+                      <MenuItem onClick={() => router.push("/my-account")} className="group">
                         <div className="flex items-center gap-3 w-full">
                           <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
                             <FaRegUser size={16} />
@@ -178,7 +178,7 @@ const Header = () => {
                         </div>
                       </MenuItem>
 
-                      <MenuItem onClick={() => router.push("/my-list")}>
+                      <MenuItem onClick={() => router.push("/my-list")} className="group">
                         <div className="flex items-center gap-3 w-full">
                           <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
                             <FaRegHeart size={16} />
@@ -187,7 +187,7 @@ const Header = () => {
                         </div>
                       </MenuItem>
 
-                      <MenuItem onClick={() => router.push("/my-orders")}>
+                      <MenuItem onClick={() => router.push("/my-orders")} className="group">
                         <div className="flex items-center gap-3 w-full">
                           <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
                             <HiOutlineShoppingBag size={18} />
@@ -196,7 +196,7 @@ const Header = () => {
                         </div>
                       </MenuItem>
 
-                      <MenuItem onClick={() => router.push("/address")}>
+                      <MenuItem onClick={() => router.push("/address")} className="group">
                         <div className="flex items-center gap-3 w-full">
                           <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
                             <MdOutlineLocationOn size={20} />

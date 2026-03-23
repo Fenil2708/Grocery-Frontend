@@ -136,7 +136,7 @@ const Sidebar = ({ isNavOpen, setIsNavOpen }) => {
                         className="w-full h-full object-cover" 
                     />
                 ) : (
-                    <div className="w-full h-full bg-blue-500 flex items-center justify-center text-white text-2xl font-bold">
+                    <div className="w-full h-full bg-primary flex items-center justify-center text-white text-2xl font-bold">
                         {context?.user?.name?.charAt(0).toUpperCase()}
                     </div>
                 )}

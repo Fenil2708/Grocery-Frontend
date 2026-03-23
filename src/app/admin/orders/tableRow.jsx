@@ -52,7 +52,7 @@ const OrderRow = ({ order, onStatusChange }) => {
     : "—";
 
   const statusColorMap = {
-    confirm: "text-blue-600",
+    confirm: "text-primary",
     ordered: "text-yellow-600",
     delivered: "text-green-600",
     cancelled: "text-red-500",

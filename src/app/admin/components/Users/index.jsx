@@ -168,7 +168,7 @@ const UsersComponent = () => {
                             className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest border ${
                               user.role === "ADMIN"
                                 ? "bg-red-50 text-red-600 border-red-100"
-                                : "bg-blue-50 text-blue-600 border-blue-100"
+                                : "bg-primary/10 text-primary border-primary/20"
                             }`}
                           >
                             {user.role}
@@ -195,7 +195,7 @@ const UsersComponent = () => {
 
                         <TableCell data-label="ACTIONS">
                           <div className="flex items-center gap-1 justify-end md:justify-start">
-                             <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-2xl !bg-blue-50 !text-blue-600 hover:!bg-blue-600 hover:!text-white transition-all shadow-sm">
+                             <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-2xl !bg-primary/10 !text-primary hover:!bg-primary hover:!text-white transition-all shadow-sm">
                                 <RiEdit2Line size={18} />
                               </Button>
                               <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-2xl !bg-green-50 !text-green-600 hover:!bg-green-600 hover:!text-white transition-all shadow-sm">

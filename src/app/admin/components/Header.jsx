@@ -93,7 +93,7 @@ const Header = ({ setIsNavOpen, isNavOpen }) => {
                     >
                         <div className="px-4 py-2 border-b bg-gray-50 flex items-center justify-between">
                             <h3 className="text-sm font-bold text-gray-800">Notifications</h3>
-                            {unreadCount > 0 && <span className="text-[10px] bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full font-bold">{unreadCount} New</span>}
+                            {unreadCount > 0 && <span className="text-[10px] bg-primary/20 text-primary px-2 py-0.5 rounded-full font-bold">{unreadCount} New</span>}
                         </div>
                         {notifications.length === 0 ? (
                             <div className="px-4 py-8 text-center text-gray-500 text-sm">
@@ -104,12 +104,12 @@ const Header = ({ setIsNavOpen, isNavOpen }) => {
                                 <MenuItem 
                                     key={noti._id} 
                                     onClick={() => { handleMarkRead(noti._id); handleNotiClose(); }}
-                                    className={`!py-3 !border-b !border-gray-50 !flex-col !items-start hover:!bg-blue-50 ${!noti.isRead ? '!bg-blue-50/50' : ''}`}
+                                    className={`!py-3 !border-b !border-gray-50 !flex-col !items-start hover:!bg-primary/5 ${!noti.isRead ? '!bg-primary/5' : ''}`}
                                 >
                                     <p className="text-[12px] font-semibold text-gray-800 line-clamp-2 leading-tight">{noti.message}</p>
                                     <div className="flex items-center justify-between w-full mt-2">
                                         <span className="text-[10px] text-gray-400">{new Date(noti.createdAt).toLocaleString()}</span>
-                                        {!noti.isRead && <span className="w-2 h-2 bg-blue-500 rounded-full"></span>}
+                                        {!noti.isRead && <span className="w-2 h-2 bg-primary rounded-full"></span>}
                                     </div>
                                 </MenuItem>
                             ))
@@ -134,7 +134,7 @@ const Header = ({ setIsNavOpen, isNavOpen }) => {
                             className="w-full h-full object-cover"
                         />
                     ) : (
-                        <div className="w-full h-full bg-blue-500 flex items-center justify-center text-white font-bold">
+                        <div className="w-full h-full bg-primary flex items-center justify-center text-white font-bold">
                             {context?.user?.name?.charAt(0).toUpperCase()}
                         </div>
                     )}

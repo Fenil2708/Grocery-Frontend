@@ -69,8 +69,7 @@ const Footer = () => {
           addressType: "Home"
         });
         setPhone("");
-        // If we have a way to refresh addresses, we should call it here.
-        // For now, it will be fetched when Checkout loads.
+        context.getAddressList(); 
       } else {
         context.alertBox("error", res.message || "Something went wrong");
       }
