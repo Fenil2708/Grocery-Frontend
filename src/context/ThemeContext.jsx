@@ -11,6 +11,7 @@ import { fetchDataFromApi, postData, deleteData, putData } from "@/utils/api";
 import AuthGuard from "@/components/AuthGuard";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Chatbot from "@/components/Chatbot/Chatbot";
 
 import { NotificationProvider } from "./NotificationContext";
 
@@ -199,6 +200,7 @@ const ThemeProvider = ({ children }) => {
           {!pathname.startsWith("/admin") && <Header />}
           {children}
           {!pathname.startsWith("/admin") && <Footer />}
+          {!pathname.startsWith("/admin") && <Chatbot />}
         </AuthGuard>
       </NotificationProvider>
       <Toaster />
